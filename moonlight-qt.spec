@@ -1,6 +1,6 @@
 Name:           moonlight-qt
 Version:        0.8.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        GameStream client for PCs
 License:        GPLv3
 URL:            https://moonlight-stream.org/
@@ -9,8 +9,10 @@ Source0:        %{name}-%{version}.tar.xz
 Source1:        %{name}-checkout.sh
 
 BuildRequires:  alsa-lib-devel
+BuildRequires:  desktop-file-utils
 BuildRequires:  ffmpeg-devel
 BuildRequires:  gcc-c++
+BuildRequires:  libappstream-glib
 BuildRequires:  libva-devel
 BuildRequires:  libvdpau-devel
 BuildRequires:  openssl-devel
@@ -44,6 +46,10 @@ export CPPFLAGS="%{optflags}"
 export CPPFLAGS="%{optflags}"
 %make_install
 
+%check
+appstream-util validate-relax --nonet %{buildroot}/%{_metainfodir}/com.moonlight_stream.Moonlight.appdata.xml
+desktop-file-validate %{buildroot}%{_datadir}/applications/com.moonlight_stream.Moonlight.desktop
+
 %if 0%{?rhel} == 7
 
 %post
@@ -73,5 +79,8 @@ fi
 %{_metainfodir}/com.moonlight_stream.Moonlight.appdata.xml
 
 %changelog
+* Sun Jan 27 2019 Simone Caronni <negativo17@gmail.com> - 0.8.1-2
+- Add check section.
+
 * Thu Jan 24 2019 Simone Caronni <negativo17@gmail.com> - 0.8.1-1
 - First build.
