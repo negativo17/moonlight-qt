@@ -1,6 +1,6 @@
 Name:           moonlight-qt
-Version:        0.8.1
-Release:        2%{?dist}
+Version:        0.8.1a
+Release:        1%{?dist}
 Summary:        GameStream client for PCs
 License:        GPLv3
 URL:            https://moonlight-stream.org/
@@ -79,6 +79,9 @@ fi
 %{_metainfodir}/com.moonlight_stream.Moonlight.appdata.xml
 
 %changelog
+* Sun Feb 03 2019 Simone Caronni <negativo17@gmail.com> - 0.8.1a-1
+- Update to 0.8.1a.
+
 * Sun Jan 27 2019 Simone Caronni <negativo17@gmail.com> - 0.8.1-2
 - Add check section.
 

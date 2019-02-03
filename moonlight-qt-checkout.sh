@@ -9,7 +9,7 @@ cd $PROJECT-$VERSION
 
 git submodule update --init --recursive
 
-rm -frv libs .git
+rm -fr libs .git
 
 cd ..
 
