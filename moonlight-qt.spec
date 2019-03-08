@@ -19,6 +19,7 @@ BuildRequires:  openssl-devel
 BuildRequires:  opus-devel
 BuildRequires:  pulseaudio-libs-devel
 BuildRequires:  SDL2-devel
+BuildRequires:  SDL2_ttf-devel
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtquickcontrols2-devel
 BuildRequires:  qt5-qtsvg-devel
