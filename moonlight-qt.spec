@@ -24,7 +24,7 @@ BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtquickcontrols2-devel
 BuildRequires:  qt5-qtsvg-devel
 
-Requires:       libva-intel-driver
+Requires:       libva-intel-driver%{?_isa}
 
 Provides:       bundled(h264bitstream)
 Provides:       bundled(libsoundio)
