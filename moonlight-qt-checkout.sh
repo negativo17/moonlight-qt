@@ -8,8 +8,7 @@ git clone -b v$VERSION https://github.com/moonlight-stream/$PROJECT.git $PROJECT
 cd $PROJECT-$VERSION
 
 git submodule update --init --recursive
-
-rm -fr libs .git
+rm -fr libs .git .github .gitmodules .gitignore
 
 cd ..
 

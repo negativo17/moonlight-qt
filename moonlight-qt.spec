@@ -1,5 +1,5 @@
 Name:           moonlight-qt
-Version:        0.9.1
+Version:        2.1.0
 Release:        1%{?dist}
 Summary:        GameStream client for PCs
 License:        GPLv3
@@ -74,12 +74,17 @@ fi
 %license LICENSE
 %doc README.md
 %{_bindir}/moonlight
-%{_datadir}/Moonlight*
 %{_datadir}/applications/com.moonlight_stream.Moonlight.desktop
-%{_datadir}/icons/hicolor/*/apps/moonlight.svg
+%{_datadir}/icons/hicolor/scalable/apps/moonlight.svg
 %{_metainfodir}/com.moonlight_stream.Moonlight.appdata.xml
 
 %changelog
+* Sun Jun 07 2020 Simone Caronni <negativo17@gmail.com> - 2.1.0-1
+- Update to 2.1.0.
+
+* Sat Jan 11 2020 Simone Caronni <negativo17@gmail.com> - 1.2.1-1
+- Update to 1.2.1.
+
 * Thu Feb 28 2019 Simone Caronni <negativo17@gmail.com> - 0.9.1-1
 - Update to 0.9.1.
 
