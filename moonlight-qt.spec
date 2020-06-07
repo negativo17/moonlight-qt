@@ -11,7 +11,6 @@ Source1:        %{name}-checkout.sh
 BuildRequires:  alsa-lib-devel
 BuildRequires:  desktop-file-utils
 BuildRequires:  ffmpeg-devel
-BuildRequires:  gcc-c++
 BuildRequires:  libappstream-glib
 BuildRequires:  libva-devel
 BuildRequires:  libvdpau-devel
@@ -24,7 +23,14 @@ BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtquickcontrols2-devel
 BuildRequires:  qt5-qtsvg-devel
 
-Requires:       libva-intel-driver%{?_isa}
+%if 0%{?rhel} == 7
+BuildRequires:  devtoolset-8-gcc-c++
+%else
+BuildRequires:  gcc-c++
+%endif
+
+Requires:       intel-vaapi-driver%{?_isa}
+Requires:       intel-media-driver%{?_isa}
 
 Provides:       bundled(h264bitstream)
 Provides:       bundled(libsoundio)
@@ -39,6 +45,10 @@ used by the NVIDIA Shield for streaming from NVIDIA powered PCs.
 sed -i -e 's|PREFIX = /usr/local|PREFIX = %{buildroot}%{_prefix}|g' app/app.pro
 
 %build
+%if 0%{?rhel} == 7
+. /opt/rh/devtoolset-8/enable
+%endif
+
 export CPPFLAGS="%{optflags}"
 %{?qmake_qt5} moonlight-qt.pro
 %make_build
@@ -47,9 +57,15 @@ export CPPFLAGS="%{optflags}"
 export CPPFLAGS="%{optflags}"
 %make_install
 
+%if 0%{?rhel} == 7
+rm -fr %{buildroot}/%{_datadir}/metainfo
+%endif
+
 %check
-appstream-util validate-relax --nonet %{buildroot}/%{_metainfodir}/com.moonlight_stream.Moonlight.appdata.xml
 desktop-file-validate %{buildroot}%{_datadir}/applications/com.moonlight_stream.Moonlight.desktop
+%if 0%{?fedora} || 0%{?rhel} >= 8
+appstream-util validate-relax --nonet %{buildroot}/%{_metainfodir}/com.moonlight_stream.Moonlight.appdata.xml
+%endif
 
 %if 0%{?rhel} == 7
 
@@ -76,11 +92,14 @@ fi
 %{_bindir}/moonlight
 %{_datadir}/applications/com.moonlight_stream.Moonlight.desktop
 %{_datadir}/icons/hicolor/scalable/apps/moonlight.svg
+%if 0%{?fedora} || 0%{?rhel} >= 8
 %{_metainfodir}/com.moonlight_stream.Moonlight.appdata.xml
+%endif
 
 %changelog
 * Sun Jun 07 2020 Simone Caronni <negativo17@gmail.com> - 2.1.0-1
 - Update to 2.1.0.
+- Update SPEC file for building on CentOS/RHEL 7.
 
 * Sat Jan 11 2020 Simone Caronni <negativo17@gmail.com> - 1.2.1-1
 - Update to 1.2.1.
