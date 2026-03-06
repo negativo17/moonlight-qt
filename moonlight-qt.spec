@@ -1,6 +1,6 @@
-%global commit0 f0bb1031d850199031c1a30583a72191deccac8b
+%global commit0 2e9fbecfea388ba762ffce93ceaecc6d76f9fbba
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
-%global date 20251223
+%global date 20260221
 
 # app/SDL_GameControllerDB
 %global commit1 16ac3e553e23068e26819971f2cc6cd088a7f2f6
@@ -9,19 +9,19 @@
 %global commit2 34f3c58afa3c47b6cf0a49308a68cbf89c5e0bff
 %global shortcommit2 %{sub %{commit2} 1 7}
 # moonlight-common-c/moonlight-common-c
-%global commit3 b126e481a195fdc7152d211def17190e3434bcce
+%global commit3 b187204769974b9af9d2a3c3bca83ad40e4f1ac9
 %global shortcommit3 %{sub %{commit3} 1 7}
 # qmdnsengine/qmdnsengine
 %global commit4 b7a5a9f225d5e14b39f9fd1f905c4f505cf2ee99
 %global shortcommit4 %{sub %{commit4} 1 7}
 # moonlight-common-c/moonlight-common-c/enet
-%global commit5 dea6fb5414b180908b58c0293c831105b5d124dd
+%global commit5 78cc9b4b03bdd4f95c277391cac6e0951407072b
 %global shortcommit5 %{sub %{commit5} 1 7}
 
 
 Name:           moonlight-qt
 Version:        6.1.0^%{date}git%{shortcommit0}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        GameStream client for PCs
 License:        GPLv3
 URL:            https://moonlight-stream.org/
@@ -95,5 +95,8 @@ appstream-util validate-relax --nonet %{buildroot}/%{_metainfodir}/com.moonlight
 %{_metainfodir}/com.moonlight_stream.Moonlight.appdata.xml
 
 %changelog
+* Fri Mar 06 2026 Simone Caronni <negativo17@gmail.com> - 6.1.0^20260221git2e9fbec-2
+- Update to latest snapshot.
+
 * Thu Dec 25 2025 Simone Caronni <negativo17@gmail.com> - 6.1.0-1
 - First build.
