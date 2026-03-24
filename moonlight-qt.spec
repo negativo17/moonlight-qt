@@ -21,7 +21,7 @@
 
 Name:           moonlight-qt
 Version:        6.1.0^%{date}git%{shortcommit0}
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        GameStream client for PCs
 License:        GPLv3
 URL:            https://moonlight-stream.org/
@@ -47,6 +47,7 @@ BuildRequires:  libvdpau-devel
 BuildRequires:  openssl-devel
 BuildRequires:  opus-devel
 BuildRequires:  pulseaudio-libs-devel
+BuildRequires:  simde-devel
 BuildRequires:  SDL2-devel
 BuildRequires:  SDL2_ttf-devel
 BuildRequires:  qt6-qtdeclarative-devel
@@ -95,6 +96,9 @@ appstream-util validate-relax --nonet %{buildroot}/%{_metainfodir}/com.moonlight
 %{_metainfodir}/com.moonlight_stream.Moonlight.appdata.xml
 
 %changelog
+* Tue Mar 24 2026 Simone Caronni <negativo17@gmail.com> - 6.1.0^20260221git2e9fbec-4
+- Adjust dependencies.
+
 * Tue Mar 24 2026 Simone Caronni <negativo17@gmail.com> - 6.1.0^20260221git2e9fbec-3
 - Rebuild for updated dependencies.
 
