@@ -21,7 +21,7 @@
 
 Name:           moonlight-qt
 Version:        6.1.0^%{date}git%{shortcommit0}
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        GameStream client for PCs
 License:        GPLv3
 URL:            https://moonlight-stream.org/
@@ -95,6 +95,9 @@ appstream-util validate-relax --nonet %{buildroot}/%{_metainfodir}/com.moonlight
 %{_metainfodir}/com.moonlight_stream.Moonlight.appdata.xml
 
 %changelog
+* Tue Mar 24 2026 Simone Caronni <negativo17@gmail.com> - 6.1.0^20260221git2e9fbec-3
+- Rebuild for updated dependencies.
+
 * Fri Mar 06 2026 Simone Caronni <negativo17@gmail.com> - 6.1.0^20260221git2e9fbec-2
 - Update to latest snapshot.
 
