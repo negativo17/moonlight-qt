@@ -21,7 +21,7 @@
 
 Name:           moonlight-qt
 Version:        6.1.0^%{date}git%{shortcommit0}
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        GameStream client for PCs
 License:        GPLv3
 URL:            https://moonlight-stream.org/
@@ -97,6 +97,9 @@ appstream-util validate-relax --nonet %{buildroot}/%{_metainfodir}/com.moonlight
 %{_metainfodir}/com.moonlight_stream.Moonlight.appdata.xml
 
 %changelog
+* Sun Sep 20 2026 Simone Caronni <negativo17@gmail.com> - 6.1.0^20260918git49bf1e8-2
+- Rebuild for updated dependencies.
+
 * Fri Sep 18 2026 Simone Caronni <negativo17@gmail.com> - 6.1.0^20260918git49bf1e8-1
 - Update to latest snapshot.
 - Add the nanors submodule, drop h264bitstream which is now in the tree.
