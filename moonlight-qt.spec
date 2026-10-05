@@ -82,7 +82,7 @@ qmake6 moonlight-qt.pro
 
 %check
 desktop-file-validate %{buildroot}%{_datadir}/applications/com.moonlight_stream.Moonlight.desktop
-appstream-util validate-relax --nonet %{buildroot}/%{_metainfodir}/com.moonlight_stream.Moonlight.appdata.xml
+appstream-util validate --nonet %{buildroot}/%{_metainfodir}/com.moonlight_stream.Moonlight.appdata.xml
 
 %files
 %license LICENSE
@@ -95,6 +95,7 @@ appstream-util validate-relax --nonet %{buildroot}/%{_metainfodir}/com.moonlight
 %changelog
 * Mon Oct 05 2026 Simone Caronni <negativo17@gmail.com> - 6.2.0-1
 - Update to 6.2.0.
+- Use normal AppStream validation instead of the relaxed one.
 
 * Sun Sep 20 2026 Simone Caronni <negativo17@gmail.com> - 6.1.0^20260918git49bf1e8-2
 - Rebuild for updated dependencies.
