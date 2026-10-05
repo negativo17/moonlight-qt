@@ -1,12 +1,8 @@
-%global commit0 49bf1e80da945fc95547d8d64b40d54cbb2f3cb3
-%global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
-%global date 20260918
-
 # app/SDL_GameControllerDB
 %global commit1 8d9fefd7b810f2541f78cc7a8ccbd185bc84c7a5
 %global shortcommit1 %{sub %{commit1} 1 7}
 # moonlight-common-c/moonlight-common-c
-%global commit2 62e066388f1a1b133e0bee947b9a374311a3354b
+%global commit2 f900dd4767759c7b9d0e93bcea666b55c69ea62f
 %global shortcommit2 %{sub %{commit2} 1 7}
 # qmdnsengine/qmdnsengine
 %global commit3 920c097ffa742e2968290f15d4dde6693aec02e5
@@ -20,13 +16,13 @@
 
 
 Name:           moonlight-qt
-Version:        6.1.0^%{date}git%{shortcommit0}
-Release:        2%{?dist}
+Version:        6.2.0
+Release:        1%{?dist}
 Summary:        GameStream client for PCs
 License:        GPLv3
 URL:            https://moonlight-stream.org/
 
-Source0:        https://github.com/moonlight-stream/%{name}/archive/%{commit0}.tar.gz#/%{name}-%{shortcommit0}.tar.gz
+Source0:        https://github.com/moonlight-stream/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 Source1:        https://github.com/gabomdq/SDL_GameControllerDB/archive/%{commit1}.tar.gz#/SDL_GameControllerDB-%{shortcommit1}.tar.gz
 Source2:        https://github.com/moonlight-stream/moonlight-common-c/archive/%{commit2}.tar.gz#/moonlight-common-c-%{shortcommit2}.tar.gz
 Source3:        https://github.com/cgutman/qmdnsengine/archive/%{commit3}.tar.gz#/qmdnsengine-%{shortcommit3}.tar.gz
@@ -66,7 +62,7 @@ Provides:       bundled(nanors)
 Moonlight PC is an open source PC client for NVIDIA GameStream and Sunshine.
 
 %prep
-%autosetup -p1 -n %{name}-%{commit0}
+%autosetup -p1
 
 tar -xzf %{SOURCE1} --strip-components=1 -C app/SDL_GameControllerDB
 tar -xzf %{SOURCE2} --strip-components=1 -C moonlight-common-c/moonlight-common-c
@@ -97,6 +93,9 @@ appstream-util validate-relax --nonet %{buildroot}/%{_metainfodir}/com.moonlight
 %{_metainfodir}/com.moonlight_stream.Moonlight.appdata.xml
 
 %changelog
+* Mon Oct 05 2026 Simone Caronni <negativo17@gmail.com> - 6.2.0-1
+- Update to 6.2.0.
+
 * Sun Sep 20 2026 Simone Caronni <negativo17@gmail.com> - 6.1.0^20260918git49bf1e8-2
 - Rebuild for updated dependencies.
 
